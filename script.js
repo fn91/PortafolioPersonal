@@ -6,7 +6,7 @@ const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 const handleSmoothScroll = (e) => {
   const a = e.target.closest('a[href^="#"]');
   if (!a) return;
-  
+
   const id = a.getAttribute('href').slice(1);
   const el = document.getElementById(id);
   if (el) {
@@ -20,7 +20,7 @@ const handleSmoothScroll = (e) => {
 const initMobileMenu = () => {
   const menuBtn = $('.menu-toggle');
   const navList = $('.nav-list');
-  
+
   if (menuBtn && navList) {
     menuBtn.addEventListener('click', () => {
       const open = navList.classList.toggle('open');
@@ -103,24 +103,24 @@ const initRevealAnimations = () => {
 // === Project Filters ===
 const initProjectFilters = () => {
   const filtros = $$('button.btn-filter'); // Antes: $$('.btn-filter')
-const items = $$('#Proyectos li');
+  const items = $$('#Proyectos li');
 
-filtros.forEach(boton => {
+  filtros.forEach(boton => {
     boton.addEventListener('click', () => {
-        const key = boton.dataset.filter;
+      const key = boton.dataset.filter;
 
-        filtros.forEach(b => b.classList.remove('active'));
-        boton.classList.add('active');
+      filtros.forEach(b => b.classList.remove('active'));
+      boton.classList.add('active');
 
-        items.forEach(li => {
-            if (key === 'all' || li.dataset.tech.toLowerCase().includes(key)) {
-                li.style.display = '';
-            } else {
-                li.style.display = 'none';
-            }
-        });
+      items.forEach(li => {
+        if (key === 'all' || li.dataset.tech.toLowerCase().includes(key)) {
+          li.style.display = '';
+        } else {
+          li.style.display = 'none';
+        }
+      });
     });
-});
+  });
 };
 
 // === Lightbox ===
@@ -130,7 +130,10 @@ const initLightbox = () => {
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a.lightbox');
     if (!a) return;
-    
+
+    // Don't open lightbox for project cards (they use modal instead)
+    if (a.classList.contains('project-card')) return;
+
     e.preventDefault();
     overlay = document.createElement('div');
     overlay.className = 'lightbox-overlay';
@@ -148,14 +151,194 @@ const initKeyboardNav = (overlay) => {
     if (e.key === 'Escape') {
       $('.nav-list')?.classList.remove('open');
       overlay?.remove();
+
+      // Close project modal
+      const modal = $('#projectModal');
+      if (modal && !modal.hidden) {
+        modal.hidden = true;
+        document.body.style.overflow = '';
+      }
     }
+  });
+};
+
+// === Project Modal ===
+const initProjectModal = () => {
+  const modal = $('#projectModal');
+  const modalClose = $('.modal-close', modal);
+
+  // Open modal when clicking on project cards
+  document.addEventListener('click', (e) => {
+    const projectCard = e.target.closest('.project-card');
+    if (!projectCard) return;
+
+    e.preventDefault();
+    const li = projectCard.closest('li');
+
+    // Populate modal with project data
+    $('#modal-img').src = li.dataset.projectImg;
+    $('#modal-img').alt = li.dataset.projectTitle;
+    $('#modal-title').textContent = li.dataset.projectTitle;
+    $('#modal-desc').textContent = li.dataset.projectDesc;
+    $('#modal-tech').textContent = `Tecnologías: ${li.dataset.projectTech}`;
+    $('#modal-demo').href = li.dataset.projectDemo;
+    $('#modal-repo').href = li.dataset.projectRepo;
+
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    modal.focus();
+  });
+
+  // Close modal
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  };
+
+  modalClose?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+};
+
+// === Contact Form Validation ===
+const initContactForm = () => {
+  const form = $('#contactForm');
+  if (!form) return;
+
+  const fields = {
+    name: $('#name'),
+    email: $('#email'),
+    message: $('#message')
+  };
+
+  const errors = {
+    name: $('#name-error'),
+    email: $('#email-error'),
+    message: $('#message-error')
+  };
+
+  const validateField = (field, errorEl) => {
+    const value = field.value.trim();
+    let error = '';
+
+    if (field.name === 'name') {
+      if (!value) error = 'El nombre es requerido';
+      else if (value.length < 2) error = 'El nombre debe tener al menos 2 caracteres';
+    }
+
+    if (field.name === 'email') {
+      if (!value) error = 'El email es requerido';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) error = 'Email inválido';
+    }
+
+    if (field.name === 'message') {
+      if (!value) error = 'El mensaje es requerido';
+      else if (value.length < 10) error = 'El mensaje debe tener al menos 10 caracteres';
+    }
+
+    errorEl.textContent = error;
+    field.classList.toggle('error', !!error);
+    field.classList.toggle('valid', !error && value);
+
+    return !error;
+  };
+
+  // Real-time validation
+  Object.entries(fields).forEach(([name, field]) => {
+    field.addEventListener('blur', () => validateField(field, errors[name]));
+    field.addEventListener('input', () => {
+      if (field.classList.contains('error')) {
+        validateField(field, errors[name]);
+      }
+    });
+  });
+
+  // Form submission
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const isValid = Object.entries(fields).every(([name, field]) =>
+      validateField(field, errors[name])
+    );
+
+    if (isValid) {
+      const successMsg = $('.form-success');
+      successMsg.textContent = '✓ ¡Mensaje enviado con éxito! Te contactaré pronto.';
+      successMsg.style.display = 'block';
+      form.reset();
+
+      // Clear validation states
+      Object.values(fields).forEach(field => {
+        field.classList.remove('valid', 'error');
+      });
+
+      setTimeout(() => {
+        successMsg.style.display = 'none';
+      }, 5000);
+    }
+  });
+};
+
+// === Custom Cursor ===
+const initCustomCursor = () => {
+  const cursor = $('.custom-cursor');
+  if (!cursor) return;
+
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  // Smooth cursor animation
+  const animateCursor = () => {
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
+
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+
+    requestAnimationFrame(animateCursor);
+  };
+  animateCursor();
+
+  // Expand cursor on interactive elements
+  const interactiveEls = 'a, button, input, textarea, .project-card';
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(interactiveEls)) {
+      cursor.classList.add('cursor-hover');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(interactiveEls)) {
+      cursor.classList.remove('cursor-hover');
+    }
+  });
+};
+
+// === Enhanced Social Media Animations ===
+const initSocialAnimations = () => {
+  const socialLinks = $$('.social-links a');
+
+  socialLinks.forEach(link => {
+    link.addEventListener('mouseenter', function () {
+      this.style.transform = 'translateY(-5px) rotate(5deg) scale(1.1)';
+    });
+
+    link.addEventListener('mouseleave', function () {
+      this.style.transform = '';
+    });
   });
 };
 
 // === Initialize Everything ===
 const init = () => {
   // smooth scroll ahora lo maneja CSS (html{scroll-behavior:smooth})
-initMobileMenu();
+  initMobileMenu();
   initActiveSectionTracking();
   initScrollUI();
   initThemeSwitcher();
@@ -163,6 +346,12 @@ initMobileMenu();
   initProjectFilters();
   const overlay = initLightbox();
   initKeyboardNav(overlay);
+
+  // New features
+  initProjectModal();
+  initContactForm();
+  initCustomCursor();
+  initSocialAnimations();
 };
 
 // Start when DOM is ready
