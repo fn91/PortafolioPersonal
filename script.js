@@ -46,6 +46,15 @@ const initActiveSectionTracking = () => {
   }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
 
   sections.forEach(s => s.id && io.observe(s));
+
+  // Handle top of page explicitly
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < 100) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const navHome = byId('Inicio');
+      if (navHome) navHome.classList.add('active');
+    }
+  });
 };
 
 // === Scroll UI Elements ===
@@ -61,7 +70,20 @@ const initScrollUI = () => {
   };
 
   document.addEventListener('scroll', updateScrollUI);
-  toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  // Handle all links to #Inicio (nav and back-to-top)
+  const homeLinks = $$('a[href="#Inicio"]');
+  homeLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.pushState(null, '', '#Inicio');
+
+      // Update active state manually
+      $$('.nav-list a').forEach(a => a.classList.remove('active'));
+      const navHome = document.querySelector('.nav-list a[href="#Inicio"]');
+      if (navHome) navHome.classList.add('active');
+    });
+  });
 };
 
 // === Theme Switcher ===
