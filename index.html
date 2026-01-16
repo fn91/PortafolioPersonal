@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <header class="rutas" id="Inicio">
+  <header class="rutas">
     <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav-list">
       <ul role="list" aria-label="Menú de navegación">
@@ -34,11 +34,13 @@
     </nav>
   </header>
 
-  <main>
+  <main id="Inicio">
     <section id="Acercademi" class="about" aria-labelledby="acercademi-title">
       <div class="about-grid">
-        <img src="assets/fotosvarias/fotoperfil.png" alt="Foto de perfil de Claudio Fanelli Rodríguez" loading="lazy"
-          class="about_img" />
+        <div class="about_img_wrapper">
+          <img src="assets/fotosvarias/fotoperfil.png" alt="Foto de perfil de Claudio Fanelli Rodríguez" loading="lazy"
+            class="about_img" />
+        </div>
 
         <div class="about-meta">
           <h1 id="acercademi-title">Claudio Fanelli Rodríguez</h1>
@@ -81,9 +83,9 @@
       </ul>
     </section>
 
-    <section class="skills-container">
+    <section id="Habilidades" class="skills-container">
       <aside class="Habilidades">
-        <h2 id="Habilidades">Habilidades</h2>
+        <h2>Habilidades</h2>
         <div class="tech-stack">
           <div class="skill-group">
             <h4>Lenguajes y tecnologías</h4>
@@ -129,8 +131,8 @@
       </aside>
     </section>
 
-    <h2 id="Estudios">Estudios</h2>
-    <section class="certificados">
+    <section id="Estudios" class="certificados">
+      <h2>Estudios</h2>
       <ul>
         <p>Estudios realizados:</p>
         <li>
@@ -157,8 +159,8 @@
       <hr class="separador-de-linea">
       <div class="filtros">
         <button class="btn-filter active" data-filter="all">Todos</button>
-        <button class="btn-filter" data-filter="kotlin">Kotlin</button>
-        <button class="btn-filter" data-filter="html">Html</button>
+        <button class="btn-filter" data-filter="react">React</button>
+        <button class="btn-filter" data-filter="html">HTML</button>
         <button class="btn-filter" data-filter="javascript">JavaScript</button>
         <button class="btn-filter" data-filter="css">CSS</button>
       </div>
@@ -170,51 +172,125 @@
           <h3 class="h5">Proyectos en desarrollo para mi repositorio como prácticas personales:</h3>
           <ul>
 
-            <li data-tech="HTML,css,JavaScript" data-project-title="Todo Lista"
-              data-project-desc="Aplicación de gestión de tareas con funcionalidad de agregar, completar y eliminar tareas. Incluye persistencia de datos en localStorage."
-              data-project-tech="HTML, CSS, JavaScript" data-project-demo="https://fn91.github.io/Todo-Lista"
-              data-project-repo="https://github.com/fn91/Todo-Lista"
-              data-project-img="assets/fotosvarias/Todo-list.jpg">
-              <a class="project-card" href="assets/fotosvarias/Todo-list.jpg">
-                <img src="assets/fotosvarias/Todo-list.jpg" loading="lazy" alt="Todo-List" width="110" height="110">
+            <li data-tech="React" data-project-title="StateFlow v1.0"
+              data-project-desc="StateFlow es una herramienta pedagógica diseñada para visualizar cómo fluye la información en una arquitectura de React utilizando Context API. "
+              data-project-tech="React 18: Biblioteca principal.
+                      Vite: Herramienta de construcción ultra rápida.
+              Context API: Gestión de estado global sin librerías externas.
+              Tailwind CSS Moderno: Diseño Cyber-Tech con Glassmorphism y animaciones de keyframes.
+              "data-project-demo="https://state-flow.vercel.app"
+              data-project-repo="https://github.com/fn91/state-flow"
+              data-project-img="assets/fotosvarias/stateflow1.png">
+              <a class="project-card" href="assets/fotosvarias/stateflow1.png">
+                <img src="assets/fotosvarias/stateflow1.png" loading="lazy" alt="StateFlow" width="110" height="110">
               </a>
-              <p> Todo lista</p>
-              <a href="https://fn91.github.io/Todo-Lista" target="_blank" class="btn-demo" rel="noopener noreferrer">Ver
+              <p> StateFlow</p>
+              <a href="https://state-flow.vercel.app" target="_blank" class="btn-demo" rel="noopener noreferrer">Ver
                 demo</a>
-              <a href="https://github.com/fn91/Todo-Lista" target="_blank" rel="noopener noreferrer">Mostrar código</a>
+              <a href="https://github.com/fn91/state-flow" target="_blank" rel="noopener noreferrer"
+                class="btn-code">Mostrar código</a>
             </li>
 
-            <li data-tech="HTML,css,JavaScript" data-project-title="Chat IA"
-              data-project-desc="Asistente de chat inteligente con interfaz moderna. Permite conversaciones interactivas con respuestas dinámicas."
-              data-project-tech="HTML, CSS, JavaScript" data-project-demo="https://fn91.github.io/Chat-ias"
-              data-project-repo="https://github.com/fn91/Chat-ias"
-              data-project-img="assets/fotosvarias/asistenteia.jpg">
-              <a class="project-card" href="assets/fotosvarias/asistenteia.jpg">
-                <img src="assets/fotosvarias/asistenteia.jpg" loading="lazy" alt="AsistenteIa" width="110" height="110">
+            <li data-tech="React" data-project-title="DecisionLab"
+              data-project-desc="DecisionLab es una aplicación de análisis racional diseñada para mitigar el sesgo cognitivo en la toma de decisiones complejas. Utiliza un modelo de Matriz de Decisión Ponderada para evaluar diversas opciones frente a criterios de importancia variable definidos por el usuario."
+              data-project-tech="Tecnologías: React 18, Vite y CSS3 con variables personalizadas para el "Lime Acid Neon"." data-project-demo="https://decision-lab-git-decision-claudios-projects-f9f35c91.vercel.app"
+              data-project-repo="hhttps://github.com/fn91/decision-lab"
+              data-project-img="assets/fotosvarias/decisionlab.png">
+              <a class="project-card" href="assets/fotosvarias/decisionlab.png">
+                <img src="assets/fotosvarias/decisionlab.png" loading="lazy" alt="Decision Lab" width="110" height="110">
               </a>
-              <p> Chat IA</p>
-              <a href="https://fn91.github.io/Chat-ias" target="_blank" class="btn-demo" rel="noopener noreferrer">Ver
+              <p> DecisionLab</p>
+              <a href="https://decision-lab-git-decision-claudios-projects-f9f35c91.vercel.app" target="_blank" class="btn-demo" rel="noopener noreferrer">Ver
                 demo</a>
-              <a href="https://github.com/fn91/Chat-ias" target="_blank" rel="noopener noreferrer">Mostrar código</a>
+              <a href="https://github.com/fn91/decision-lab" target="_blank" rel="noopener noreferrer"
+                class="btn-code">Mostrar código</a>
             </li>
 
-            <li data-tech="HTML,JavaScript" data-project-title="Filtrador de Emojis"
-              data-project-desc="Buscador y filtrador de emojis con búsqueda en tiempo real. Permite copiar emojis al portapapeles con un solo clic."
-              data-project-tech="HTML, JavaScript" data-project-demo="https://fn91.github.io/FiltradorEmojis"
-              data-project-repo="https://github.com/fn91/FiltradorEmojis"
+            <li data-tech="React" data-project-title="Ecommerce React"
+              data-project-desc="Una aplicación de comercio electrónico moderna y completa creada con React, Vite, TailwindCSS y Zustand. Ofrece una experiencia de usuario fluida y atractiva, con funcionalidades como navegación por categorías, búsqueda de productos, gestión de carrito de compras y proceso de pago simulado."
+              data-project-tech="Pila de tecnología :
+              Reaccionar 19 + Vite
+              TailwindCSS para estilo
+              Zustand para gestión de estados
+              React Router v6 para enrutamiento
+              React Hook Form + Zod para formularios
+              Axios para solicitudes de API
+              Node.js + JSON-Server (punto de entrada personalizado para la implementación)" 
+              data-project-demo="https://ecommerce-react-ivory-five.vercel.app"
+              data-project-repo="https://github.com/fn91/EcommerceReact"
               data-project-img="assets/fotosvarias/emojis.jpg">
-              <a class="project-card" href="assets/fotosvarias/emojis.jpg">
-                <img src="assets/fotosvarias/emojis.jpg" loading="lazy" alt="Emojis" width="110" height="110">
+              <a class="project-card" href="assets/fotosvarias/ecommerce.png">
+                <img src="assets/fotosvarias/ecommerce.png" loading="lazy" alt="Ecommerce" width="110" height="110">
               </a>
-              <p> Emojis filtrador</p>
-              <a href="https://fn91.github.io/FiltradorEmojis" target="_blank" class="btn-demo"
+              <p> Ecommerce con React</p>
+              <a href="https://ecommerce-react-ivory-five.vercel.app" target="_blank" class="btn-demo"
                 rel="noopener noreferrer">Ver demo</a>
-              <a href="https://github.com/fn91/FiltradorEmojis" target="_blank" rel="noopener noreferrer">Mostrar
+              <a href="https://github.com/fn91/EcommerceReact" target="_blank" rel="noopener noreferrer"
+                class="btn-code">Mostrar
                 código</a>
             </li>
 
 
 
+              <li data-tech="Html, CSS, JavaScript" data-project-title="ClimaApp"
+              data-project-desc="Una experiencia meteorológica minimalista, audaz y tipográfica. Diseño de vanguardia inspirado en el estilo suizo aplicado a una herramienta funcional. "
+              data-project-tech="HTML5	Estructura semántica y accesible
+              CSS3	Layout Grid, Variables y Diseño Editorial
+              JS (ES6+)	Lógica de negocio y consumo asíncrono de API
+              OpenWeather	Motor de datos meteorológicos
+              "data-project-demo="https://clima-app-sooty.vercel.app"
+              data-project-repo="https://github.com/fn91/ClimaApp"
+              data-project-img="assets/fotosvarias/stateflow1.png">
+              <a class="project-card" href="assets/fotosvarias/climaApp.png">
+                <img src="assets/fotosvarias/climaApp.png" loading="lazy" alt="ClimaApp" width="110" height="110">
+              </a>
+              <p>ClimaApp</p>
+              <a href="https://clima-app-sooty.vercel.app" target="_blank" class="btn-demo" rel="noopener noreferrer">Ver
+                demo</a>
+              <a href="https://github.com/fn91/ClimaApp" target="_blank" rel="noopener noreferrer"
+                class="btn-code">Mostrar código</a>
+            </li>
+
+
+              <li data-tech="Html, CSS, JavaScript" data-project-title="BuscadorRecetas"
+              data-project-desc="Aplicación web moderna para buscar, visualizar y guardar recetas usando la API pública TheMealDB.
+              Compatible con búsquedas en español e inglés, con detección automática de ingredientes, regiones y categorías comunes. "
+              data-project-tech="HHTML5 semántico
+              CSS3 (custom properties + grid + flexbox)
+              JavaScript puro (ES6)
+              Fetch API
+              LocalStorage
+              "data-project-demo="https://fn91.github.io/BuscadorRecetas"
+              data-project-repo="https://github.com/fn91/BuscadorRecetas"
+              data-project-img="assets/fotosvarias/comidas.png">
+              <a class="project-card" href="assets/fotosvarias/comidas.png">
+                <img src="assets/fotosvarias/comidas.png" loading="lazy" alt="BuscadorRecetas" width="110" height="110">
+              </a>
+              <p> BuscadorRecetas</p>
+              <a href="https://fn91.github.io/BuscadorRecetas" target="_blank" class="btn-demo" rel="noopener noreferrer">Ver
+                demo</a>
+              <a href="https://github.com/fn91/BuscadorRecetas" target="_blank" rel="noopener noreferrer"
+                class="btn-code">Mostrar código</a>
+            </li>
+
+
+              <li data-tech="React, CSS, Javascript" data-project-title="LifeWeeks"
+              data-project-desc="LifeWeeks es una herramienta de introspección visual que representa una vida de 80 años dividida en semanas. El objetivo es proporcionar una perspectiva tangible sobre el paso del tiempo y fomentar el aprovechamiento del presente. "
+              data-project-tech="React (Vite) - Framework principal y entorno de desarrollo.
+              CSS3 (Grid, Animations, Variables) - Para un diseño fluido y moderno.
+              JavaScript (ES6+, Date API) - Lógica de negocio y manejo de tiempo.
+              "data-project-demo="https://lifeweeks-beta.vercel.app"
+              data-project-repo="https://github.com/fn91/lifeweeks"
+              data-project-img="assets/fotosvarias/lifewweeks.png">
+              <a class="project-card" href="assets/fotosvarias/lifeweeks.png">
+                <img src="assets/fotosvarias/climaApp.png" loading="lazy" alt="LifeWeeks" width="110" height="110">
+              </a>
+              <p> LifeWeeks</p>
+              <a href="https://lifeweeks-beta.vercel.app" target="_blank" class="btn-demo" rel="noopener noreferrer">Ver
+                demo</a>
+              <a href="https://github.com/fn91/lifeweeks" target="_blank" rel="noopener noreferrer"
+                class="btn-code">Mostrar código</a>
+            </li>
           </ul>
         </div>
       </section>
@@ -250,9 +326,9 @@
       </section>
   </main>
 
-  <footer>
+  <footer id="Contacto">
     <div class="footer-top">
-      <div id="Contacto" class="contact-info">
+      <div class="contact-info">
         <span class="social-title">Contacto:</span>
         <div class="contact-card">
           <img src="assets/icons/icon-mail.png" alt="Email" />
@@ -282,26 +358,10 @@
           </a>
         </li>
         <li>
-          <a href="https://codepen.io/Claudio-Fanelli" target="_blank" rel="noopener noreferrer">
-            <svg width="40" height="40" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <a href="https://vercel.com/claudios-projects-f9f35c91" target="_blank" rel="noopener noreferrer">
+           <img src="assets/icons/vercel.png" width="40" height="40" />
 
-              <g fill="#000000">
-
-                <path
-                  d="M4.416 7.378v1.244L5.346 8l-.93-.622zM7.627 6.473V4.738L4.712 6.683l1.302.87 1.613-1.08zM11.285 6.683L8.37 4.738v1.735l1.613 1.08 1.302-.87zM4.712 9.32l2.915 1.942V9.527l-1.613-1.08-1.302.873zM8.37 9.527v1.735l2.915-1.942-1.302-.873-1.613 1.08zM8 7.12L6.683 8 8 8.879 9.314 8 8 7.12z" />
-
-                <path
-                  d="M8 1a7 7 0 10.001 14.001A7 7 0 008 1zm4.327 8.32c0 .018 0 .033-.003.047 0 .006-.003.012-.003.015l-.006.033c-.002.006-.002.012-.005.018l-.01.026-.008.018c-.003.009-.01.018-.012.024a.06.06 0 01-.012.017l-.015.024a.065.065 0 01-.012.015c-.005.006-.011.015-.017.02l-.015.015c-.006.006-.015.012-.02.018-.007.003-.013.009-.019.012-.003 0-.003.003-.005.006l-3.96 2.64a.377.377 0 01-.414 0L3.832 9.631c-.003 0-.003-.003-.006-.006l-.018-.012c-.006-.006-.015-.012-.02-.018l-.016-.014a.129.129 0 01-.017-.021c-.003-.006-.01-.012-.012-.015a.064.064 0 01-.015-.024.062.062 0 00-.012-.017l-.012-.024-.009-.018-.008-.026-.006-.018a.106.106 0 01-.006-.033c0-.006-.003-.012-.003-.015-.003-.014-.003-.032-.003-.047V6.686c0-.018 0-.033.003-.048 0-.005.003-.011.003-.014l.006-.033.006-.018.008-.026.01-.018c.002-.009.008-.018.011-.024a.062.062 0 01.012-.017l.015-.024a.065.065 0 01.012-.015c.006-.006.011-.015.017-.02l.015-.015c.006-.006.015-.012.02-.018.007-.003.013-.01.019-.012.003 0 .003-.003.006-.006L7.79 3.741a.372.372 0 01.411 0l3.958 2.637c.002 0 .002.003.005.006l.018.012.021.018.015.014c.006.006.012.012.018.021l.011.015a.065.065 0 01.015.024.06.06 0 00.012.017.087.087 0 01.012.024l.009.018.009.026c.003.006.003.012.005.018.004.009.006.02.006.033 0 .006.003.012.003.014a.251.251 0 01.003.048V9.32h.006z" />
-
-                <path d="M11.584 8.622V7.378L10.652 8l.932.622z" />
-
-              </g>
-
-              <path fill="#ffffff" fill-rule="evenodd"
-                d="M12.327 9.32c0 .018 0 .033-.003.048 0 .003 0 .006-.002.01v.004a.14.14 0 00-.004.017c0 .003 0 .007-.002.012v.004a.044.044 0 00-.004.009c0 .002 0 .004-.002.006v.003l-.01.026-.008.018-.009.018-.003.006a.06.06 0 01-.012.017l-.003.006-.004.006a.33.33 0 01-.02.027.129.129 0 00-.008.01l-.01.01-.014.015a.135.135 0 01-.01.01.118.118 0 00-.01.008l-.01.006-.009.006-.003.003-.003.003-3.96 2.64a.377.377 0 01-.414 0L3.832 9.631l-.003-.003-.002-.003-.01-.006-.008-.006a.13.13 0 00-.01-.009.127.127 0 01-.01-.009l-.016-.014a.129.129 0 01-.017-.021.065.065 0 00-.012-.015.064.064 0 01-.015-.024.062.062 0 00-.012-.017l-.009-.018-.003-.006-.009-.018-.009-.026-.003-.01-.002-.008a.106.106 0 01-.006-.033l-.002-.01-.001-.005c-.003-.014-.003-.032-.003-.047V6.686c0-.018 0-.033.003-.047l.001-.01.002-.005.003-.017c0-.003 0-.007.002-.011V6.59l.003-.009.003-.009.01-.026.008-.018a.104.104 0 01.009-.018l.003-.006a.062.062 0 01.012-.017l.007-.012.008-.012a.065.065 0 01.012-.015l.008-.01c.003-.004.006-.008.01-.01l.014-.015a.131.131 0 01.01-.01c.004-.002.008-.005.01-.008l.004-.002.006-.004a.062.062 0 01.009-.006l.003-.003.002-.003L7.79 3.741a.371.371 0 01.411 0l3.957 2.637.004.003.002.003.01.006.005.004.003.002a.091.091 0 00.006.005l.005.004.01.009.015.014.017.021.008.01.004.005a.065.065 0 01.015.024.06.06 0 00.012.017.087.087 0 01.012.024l.009.018.008.026c.002.003.003.006.003.01l.003.008c.003.01.006.02.006.033l.002.01.001.005a.251.251 0 01.003.047V9.32h.006zm-7.911-.698V7.378L5.345 8l-.93.622zm3.211-3.884v1.735l-1.613 1.08-1.302-.87 2.915-1.945zm.743 0l2.915 1.945-1.302.87-1.613-1.08V4.738zm-.743 6.524L4.712 9.32l1.302-.873 1.613 1.08v1.735zm.743 0V9.527l1.613-1.08 1.302.873-2.915 1.942zM8 8.879L6.683 8 8 7.121 9.314 8 8 8.88zm3.584-1.5v1.243L10.652 8l.932-.622z"
-                clip-rule="evenodd" />
-
-            </svg>
+            
           </a>
         </li>
       </ul>
@@ -324,8 +384,31 @@
     </div>
   </footer>
 
-  <a href="#Inicio" class="to-top" aria-label="Volver arriba" hidden>↑</a>
+  <!-- Command Palette -->
+  <div id="commandPalette">
+    <input type="text" class="command-input" placeholder="¿Qué estás buscando? (Presiona Esc para cerrar)" autofocus>
+    <div class="command-list">
+      <div class="command-item" data-action="scroll-proyectos">
+        <span>Ir a Proyectos</span>
+        <span class="command-shortcut">P</span>
+      </div>
+      <div class="command-item" data-action="scroll-contacto">
+        <span>Contactar</span>
+        <span class="command-shortcut">C</span>
+      </div>
+      <div class="command-item" data-action="toggle-theme">
+        <span>Cambiar Tema</span>
+        <span class="command-shortcut">T</span>
+      </div>
+      <div class="command-item" data-action="download-cv">
+        <span>Descargar CV</span>
+        <span class="command-shortcut">D</span>
+      </div>
+    </div>
+  </div>
+
   <div class="progress"></div>
+  <a href="#Inicio" class="to-top" aria-label="Volver arriba">↑</a>
   <button class="theme-toggle" aria-label="Cambiar tema">🌓</button>
 
   <!-- Project Modal -->
@@ -338,7 +421,7 @@
       <p id="modal-tech" class="modal-tech"></p>
       <div class="modal-links">
         <a id="modal-demo" href="#" target="_blank" rel="noopener noreferrer" class="btn-demo">Ver demo</a>
-        <a id="modal-repo" href="#" target="_blank" rel="noopener noreferrer" class="btn-repo">Ver código</a>
+        <a id="modal-repo" href="#" target="_blank" rel="noopener noreferrer" class="btn-code">Mostrar código</a>
       </div>
     </div>
   </div>

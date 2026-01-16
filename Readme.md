@@ -1,45 +1,68 @@
+# 🌟 Portafolio Personal — Claudio Fanelli Rodríguez
+
 ## 📸 Vista Previa
 
-![Preview del Portafolio](assets/fotosvarias/fotoperfil.png)
+![Preview del Portafolio](assets/fotosvarias/hero-bg.png)
 
 > 💡 *Energía de junior, compromiso de senior.*
 
 ---
 
-## ✨ Características
+## ✨ Diseño y Estética (Update 2026)
 
-### 🖥️ Interfaz y Navegación
-- **Diseño responsive** adaptado a móviles, tablets y escritorio.
-- **Menú de navegación accesible** con:
-  - Apertura/cierre en móviles.
-  - Resaltado automático de la sección activa.
-  - Desplazamiento suave entre secciones.
-- **Modo claro/oscuro** con persistencia en `localStorage`.
-- **Botón de volver arriba** y **barra de progreso de scroll**.
+El portafolio ha sido rediseñado con una estética **Obsidian Glacier**, priorizando la elegancia, el rendimiento y la experiencia de usuario premium:
 
-### 📑 Secciones
-- **Inicio / Acerca de mí**: presentación personal, disponibilidad y botón de contacto.
-- **Habilidades técnicas**: HTML, CSS, JavaScript, Python, React, Tailwind, Astro, Git, Vite, Figma.
-- **Soft Skills**: trabajo en equipo, comunicación, adaptabilidad, etc.
-- **Estudios y cursos**: formación académica y complementaria.
-- **Proyectos**: con imágenes, tecnologías usadas y enlaces al código.
-- **Contacto**: redes sociales, email y teléfono.
-
-### 🎯 Funcionalidades Interactivas
-- **Animaciones on-scroll** usando `IntersectionObserver`.
-- **Lightbox** para ver imágenes en grande.
-- **Filtros de proyectos** por tecnología.
-- **Navegación por teclado** (ESC para cerrar).
+- **Paleta de Colores**: Uso de `Azul Eléctrico Profundo` y `Cian Técnico` sobre un fondo oscuro profundo.
+- **Glassmorphism**: Componentes con fondos translúcidos y desenfoque de fondo para un efecto moderno.
+- **Micro-interacciones**: Animaciones sutiles en botones, tarjetas y la foto de perfil (zoom dinámico y rotación compensada).
+- **Tipografía**: Combinación de `Outfit` para títulos y `Plus Jakarta Sans` para lectura fluida.
 
 ---
 
-## 📂 Estructura
+## 🛠️ Tecnologías
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Astro](https://img.shields.io/badge/astro-%230D1117.svg?style=for-the-badge&logo=astro&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+---
+
+## 🚀 Características
+
+### �️ Interfaz y Navegación
+- **Diseño Responsive**: Totalmente adaptado a móviles (con menú hamburguesa) y escritorio.
+- **Command Palette (Ctrl+K)**: Buscador rápido interactivo para navegar entre secciones.
+- **Modo Claro/Oscuro**: Sistema de temas inteligente con persistencia.
+- **Navegación Fluida**: Scroll suave y detector de sección activa en tiempo real.
+- **Cursor Personalizado**: Seguimiento interactivo que reacciona a elementos clickeables.
+
+### 📑 Secciones Principales
+- **Bento Grid Intro**: Diseño asimétrico para la sección "Acerca de mí" con centrado inteligente del retrato.
+- **Skills Dinámicas**: Clasificación por lenguajes, frameworks y herramientas.
+- **Filtrado de Proyectos**: Sistema de filtrado por tags (Kotlin, HTML, JS, CSS).
+- **Modales de Detalles**: Previsualización ampliada de proyectos sin salir de la página principal.
+
+### 🎯 Funcionalidades Avanzadas
+- **Optimización de Retrato**: Sistema de zoom y re-centrado CSS para asegurar una visualización perfecta del sujeto.
+- **Contacto Validado**: Formulario con validación en tiempo real y feedback visual.
+- **Rendimiento SEO**: Metaetiquetas optimizadas y carga diferida (*lazy loading*) de imágenes.
+
+---
+
+## 📂 Estructura del Proyecto
+
 ```bash
 .
-├── index.html      # Maquetación y contenido principal
-├── style.css       # Estilos, responsive y temas claro/oscuro
-├── script.js       # Interactividad y animaciones
-└── assets/         # Imágenes, iconos y recursos multimedia
+├── index.html      # Estructura semántica HTML5
+├── style.css       # Design System (Variables, Glassmorphism, Responsive)
+├── script.js       # Comportamiento, Modales, Command Palette y Cursor
+└── assets/         # Recursos optimizados (Iconos, Fotos, Fondos)
+```
 
-📜 Licencia
-Proyecto bajo licencia MIT — puedes usarlo, modificarlo y adaptarlo, mencionando la autoría original.
+---
+
+## 📜 Licencia
+Proyecto creado por **Claudio Fanelli Rodríguez**. Bajo licencia MIT para uso personal y educativo.
