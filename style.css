@@ -390,20 +390,30 @@ html[data-theme="dark"] .skill-icons img {
   padding: 60px;
 }
 
-.certificados ul {
+.estudios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  list-style: none;
-  padding: 20px 0;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-top: 30px;
 }
 
-.certificados ul p {
-  grid-column: 1 / -1;
-  font-weight: 700;
+.estudios-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.estudios-section h3 {
   color: var(--accent-primary);
-  margin: 20px 0 10px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+.estudios-section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style: none;
 }
 
 .certificados li {

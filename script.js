@@ -114,6 +114,7 @@ const initProjectModal = () => {
     e.preventDefault();
     const li = card.closest('li');
     modal.querySelector('#modal-img').src = li.dataset.projectImg;
+    modal.querySelector('#modal-img').alt = li.dataset.projectTitle;
     modal.querySelector('#modal-title').textContent = li.dataset.projectTitle;
     modal.querySelector('#modal-desc').textContent = li.dataset.projectDesc;
     modal.querySelector('#modal-tech').textContent = li.dataset.projectTech;
