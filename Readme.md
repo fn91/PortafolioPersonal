@@ -8,13 +8,16 @@
 
 ---
 
-## ✨ Diseño y Estética (Update 2026)
+## ✨ Diseño y Estética (Premium Upgrade 2026)
 
 El portafolio ha sido rediseñado con una estética **Obsidian Glacier**, priorizando la elegancia, el rendimiento y la experiencia de usuario premium:
 
 - **Paleta de Colores**: Uso de `Azul Eléctrico Profundo` y `Cian Técnico` sobre un fondo oscuro profundo.
-- **Glassmorphism**: Componentes con fondos translúcidos y desenfoque de fondo para un efecto moderno.
-- **Micro-interacciones**: Animaciones sutiles en botones, tarjetas y la foto de perfil (zoom dinámico y rotación compensada).
+- **Glassmorphism**: Componentes con fondos translúcidos, desenfoque de fondo y bordes dinámicos.
+- **Animaciones Premium**: 
+    - **Stagger Reveal**: Los elementos de habilidades y aportes aparecen de forma escalonada al hacer scroll.
+    - **Micro-Parallax**: Efecto de profundidad en la sección Hero que reacciona al desplazamiento.
+    - **Transiciones Fluídas**: Modales y filtros con transiciones de opacidad y escala.
 - **Tipografía**: Combinación de `Outfit` para títulos y `Plus Jakarta Sans` para lectura fluida.
 
 ---
@@ -32,23 +35,23 @@ El portafolio ha sido rediseñado con una estética **Obsidian Glacier**, priori
 
 ## 🚀 Características
 
-### �️ Interfaz y Navegación
-- **Diseño Responsive**: Totalmente adaptado a móviles (con menú hamburguesa) y escritorio.
-- **Command Palette (Ctrl+K)**: Buscador rápido interactivo para navegar entre secciones.
-- **Modo Claro/Oscuro**: Sistema de temas inteligente con persistencia.
-- **Navegación Fluida**: Scroll suave y detector de sección activa en tiempo real.
-- **Cursor Personalizado**: Seguimiento interactivo que reacciona a elementos clickeables.
+### 🖥️ Interfaz y Navegación
+- **Diseño Responsive Pro**: Menú lateral tipo aplicación con desenfoque de cristal y bloqueo de scroll.
+- **Command Palette Search (Ctrl+K)**: Ahora incluye **búsqueda en tiempo real** de proyectos. Busca "React" o "CSS" y salta directamente al modal del proyecto.
+- **Modo Claro/Oscuro**: Sistema de temas inteligente con persistencia y cambio de iconos dinámico.
+- **Navegación Inteligente**: Detector de sección activa (Intersection Observer) y barra de progreso de lectura.
+- **Cursor Smooth (Lerp)**: Cursor personalizado con inercia suave y detección de dispositivos táctiles (se oculta en móviles).
 
 ### 📑 Secciones Principales
 - **Bento Grid Intro**: Diseño asimétrico para la sección "Acerca de mí" con centrado inteligente del retrato.
-- **Skills Dinámicas**: Clasificación por lenguajes, frameworks y herramientas.
-- **Filtrado de Proyectos**: Sistema de filtrado por tags (Kotlin, HTML, JS, CSS).
-- **Modales de Detalles**: Previsualización ampliada de proyectos sin salir de la página principal.
+- **Skills Dinámicas**: Clasificación por lenguajes, frameworks y herramientas con aparición staggered.
+- **Filtrado de Proyectos**: Sistema de filtrado por tags (React, HTML, JS, CSS) con animaciones de salida/entrada.
+- **Modales de Detalles**: Previsualización completa de proyectos con soporte para cierre por teclado (Esc).
 
 ### 🎯 Funcionalidades Avanzadas
-- **Optimización de Retrato**: Sistema de zoom y re-centrado CSS para asegurar una visualización perfecta del sujeto.
-- **Contacto Validado**: Formulario con validación en tiempo real y feedback visual.
-- **Rendimiento SEO**: Metaetiquetas optimizadas y carga diferida (*lazy loading*) de imágenes.
+- **Optimización de Performance**: Carga diferida (*lazy loading*) de imágenes y animaciones optimizadas para no penalizar el CLS.
+- **Contacto Validado**: Formulario con validación en tiempo real y feedback visual coordinado.
+- **Rendimiento SEO**: Metaetiquetas OpenGraph y Twitter optimizadas para compartir en redes.
 
 ---
 
@@ -56,9 +59,9 @@ El portafolio ha sido rediseñado con una estética **Obsidian Glacier**, priori
 
 ```bash
 .
-├── index.html      # Estructura semántica HTML5
-├── style.css       # Design System (Variables, Glassmorphism, Responsive)
-├── script.js       # Comportamiento, Modales, Command Palette y Cursor
+├── index.html      # Estructura semántica avanzada
+├── style.css       # Design System (Variables, Glassmorphism, Staggered Anims)
+├── script.js       # Buscador Real, Interpolación de Cursor y Lógica UI
 └── assets/         # Recursos optimizados (Iconos, Fotos, Fondos)
 ```
 
