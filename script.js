@@ -1,3 +1,4 @@
+
 // === Navigation & Section Tracking ===
 const initActiveSectionTracking = () => {
   const animSections = document.querySelectorAll('section');
@@ -38,6 +39,7 @@ const initScrollUI = () => {
 
   window.addEventListener('scroll', () => {
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalHeight <= 0) return;
     const scrollPos = (window.scrollY / totalHeight) * 100;
     if (progress) progress.style.width = `${scrollPos}%`;
     if (toTop) toTop.style.opacity = window.scrollY > 500 ? '1' : '0';
@@ -47,6 +49,8 @@ const initScrollUI = () => {
 // === Command Palette Logic ===
 const initCommandPalette = () => {
   const palette = document.getElementById('commandPalette');
+  if (!palette) return;
+
   const input = palette.querySelector('.command-input');
   const items = palette.querySelectorAll('.command-item');
 
@@ -72,7 +76,10 @@ const initCommandPalette = () => {
       if (key === 't') executeAction('toggle-theme');
       if (key === 'd') executeAction('download-cv');
 
-      if (['p', 'c', 't', 'd'].includes(key)) togglePalette(false);
+      if (['p', 'c', 't', 'd'].includes(key)) {
+        e.preventDefault();
+        togglePalette(false);
+      }
     }
   });
 
@@ -87,13 +94,13 @@ const initCommandPalette = () => {
   const executeAction = (action) => {
     switch (action) {
       case 'scroll-proyectos':
-        document.getElementById('Proyectos').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('Proyectos')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'scroll-contacto':
-        document.getElementById('ContactoForm').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('ContactoForm')?.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'toggle-theme':
-        document.querySelector('.theme-toggle').click();
+        document.querySelector('.theme-toggle')?.click();
         break;
       case 'download-cv':
         window.open('https://www.dropbox.com/scl/fi/1qlvermybaqxewuaxtrol/Claudio_FanelliRodriguez_CV_es-firmado.pdf?rlkey=in05b3ogo9jm9p31ydbmki1p1&st=3pmq08mc&dl=0', '_blank');
@@ -105,33 +112,60 @@ const initCommandPalette = () => {
 // === Project Modal ===
 const initProjectModal = () => {
   const modal = document.getElementById('projectModal');
+  if (!modal) return;
+
   const closeBtn = modal.querySelector('.modal-close');
 
   document.addEventListener('click', (e) => {
-    const card = e.target.closest('.project-card');
-    if (!card) return;
+    const trigger = e.target.closest('.project-card, .open-modal-force');
+    if (!trigger) return;
 
     e.preventDefault();
-    const li = card.closest('li');
-    modal.querySelector('#modal-img').src = li.dataset.projectImg;
-    modal.querySelector('#modal-img').alt = li.dataset.projectTitle;
-    modal.querySelector('#modal-title').textContent = li.dataset.projectTitle;
-    modal.querySelector('#modal-desc').textContent = li.dataset.projectDesc;
-    modal.querySelector('#modal-tech').textContent = li.dataset.projectTech;
-    modal.querySelector('#modal-demo').href = li.dataset.projectDemo;
-    modal.querySelector('#modal-repo').href = li.dataset.projectRepo;
+    const li = trigger.closest('li');
+    if (!li) return;
+
+    // Poblar campos básicos
+    const img = modal.querySelector('#modal-img');
+    const title = modal.querySelector('#modal-title');
+    const desc = modal.querySelector('#modal-desc');
+    const tech = modal.querySelector('#modal-tech');
+    const demo = modal.querySelector('#modal-demo');
+    const repo = modal.querySelector('#modal-repo');
+
+    if (img) {
+      img.src = li.dataset.projectImg || '';
+      img.alt = li.dataset.projectTitle || '';
+    }
+    if (title) title.textContent = li.dataset.projectTitle || '';
+    if (desc) desc.textContent = li.dataset.projectDesc || '';
+    if (tech) tech.textContent = li.dataset.projectTech || '';
+    if (demo) demo.href = li.dataset.projectDemo || '#';
+    if (repo) repo.href = li.dataset.projectRepo || '#';
+
+    // Poblar Case Study si existe
+    const studyBox = modal.querySelector('#modal-study');
+    if (studyBox) {
+      if (li.dataset.projectReto) {
+        modal.querySelector('#study-reto').textContent = li.dataset.projectReto;
+        modal.querySelector('#study-solucion').textContent = li.dataset.projectSolucion;
+        modal.querySelector('#study-resultado').textContent = li.dataset.projectResultado;
+        studyBox.hidden = false;
+      } else {
+        studyBox.hidden = true;
+      }
+    }
 
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
   });
 
-  closeBtn.addEventListener('click', () => {
+  closeBtn?.addEventListener('click', () => {
     modal.hidden = true;
     document.body.style.overflow = '';
   });
 
   modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeBtn.click();
+    if (e.target === modal) closeBtn?.click();
   });
 };
 
@@ -144,7 +178,7 @@ const initCustomCursor = () => {
     cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
   });
 
-  document.querySelectorAll('a, button, input, textarea, .project-card').forEach(el => {
+  document.querySelectorAll('a, button, input, textarea, .project-card, .btn-filter').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
   });
@@ -153,6 +187,8 @@ const initCustomCursor = () => {
 // === Theme Management ===
 const initTheme = () => {
   const toggle = document.querySelector('.theme-toggle');
+  if (!toggle) return;
+
   const applyTheme = (theme) => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
@@ -180,14 +216,32 @@ const initFilters = () => {
 
       const filter = btn.dataset.filter;
       projects.forEach(project => {
-        const techs = project.dataset.tech.toLowerCase();
+        const techs = project.dataset.tech ? project.dataset.tech.toLowerCase() : '';
         if (filter === 'all' || techs.includes(filter)) {
           project.style.display = 'flex';
+          project.classList.add('reveal-visible');
         } else {
           project.style.display = 'none';
         }
       });
     });
+  });
+};
+
+// === Form Validation ===
+const initContactForm = () => {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const successMsg = form.querySelector('.form-success');
+    if (successMsg) {
+      successMsg.textContent = '¡Gracias! Tu mensaje ha sido enviado con éxito.';
+      successMsg.style.display = 'block';
+      form.reset();
+      setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
+    }
   });
 };
 
@@ -200,11 +254,24 @@ document.addEventListener('DOMContentLoaded', () => {
   initCustomCursor();
   initTheme();
   initFilters();
+  initContactForm();
 
   // Mobile Menu
   const menuBtn = document.querySelector('.menu-toggle');
   const navList = document.querySelector('.nav-list');
   menuBtn?.addEventListener('click', () => {
-    navList.style.display = navList.style.display === 'flex' ? 'none' : 'flex';
+    const isVisible = navList.style.display === 'flex';
+    navList.style.display = isVisible ? 'none' : 'flex';
+    menuBtn.setAttribute('aria-expanded', !isVisible);
+  });
+
+  // Close menu when clicking a link (mobile)
+  document.querySelectorAll('.nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        navList.style.display = 'none';
+        menuBtn?.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 });
