@@ -175,7 +175,8 @@ const initCustomCursor = () => {
   if (!cursor) return;
 
   window.addEventListener('mousemove', (e) => {
-    cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
   });
 
   document.querySelectorAll('a, button, input, textarea, .project-card, .btn-filter').forEach(el => {
