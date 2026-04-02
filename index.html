@@ -17,7 +17,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <title>Portafolio Personal Claudio Fanelli Rodriguez</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <script  src="js/script.js" defer></script>
+  <script src="js/terminal.js" defer></script>
+  <script src="js/context.js" defer></script>
 </head>
 
 <body>
@@ -55,7 +57,7 @@
             enfoque se centra en transformar ideas complejas en interfaces fluidas, accesibles y altamente eficientes.
           </p>
           <p>Con formación sólida en <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong>, he perfeccionado
-            mis habilidades en un stack moderno que incluye <strong>React, Astro, Tailwind CSS y Python</strong>. Mi
+            mis habilidades en un stack moderno que incluye <strong>React, Astro, Tailwind,Html,CSS y JavaScript</strong>. Mi
             compromiso es la excelencia técnica y el aprendizaje continuo para aportar valor real desde el primer día.
           </p>
         </div>
@@ -425,7 +427,7 @@
     </div>
     <div class="footer-badges">
       <span class="badge">📄 <a
-          href="https://www.dropbox.com/scl/fi/1qlvermybaqxewuaxtrol/Claudio_FanelliRodriguez_CV_es-firmado.pdf?rlkey=in05b3ogo9jm9p31ydbmki1p1&st=3pmq08mc&dl=0"
+          href="https://www.dropbox.com/scl/fi/1qlvermybaqxewuaxtrol/Claudio_FanelliRodriguez_CV_es-firmado.pdf?rlkey=in05b3ogo9jm9p31ydbmki1p1&st=3pmq08mc&dl=1"
           target="_blank" rel="noopener noreferrer">Descargar CV</a></span>
       <span class="badge">🟢 Disponible</span>
       <span class="badge">🌍 España</span>
@@ -498,9 +500,19 @@
     </div>
   </div>
 
-  <!-- Custom Cursor -->
-  <div class="custom-cursor"></div>
-
+  <div id="terminal-screen" class="terminal-hidden">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="terminal-dots"><span></span><span></span><span></span></span>
+        <span class="terminal-title">claudio@portfolio:~</span>
+      </div>
+      <div id="terminal-output"></div>
+      <div class="terminal-input-line">
+        <span class="prompt">></span>
+        <input type="text" class="terminal-input" spellcheck="false" autocomplete="off" autofocus>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

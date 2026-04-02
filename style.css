@@ -185,3 +185,83 @@ input:focus, textarea:focus { outline: none; border-color: var(--accent-primary)
   header.rutas { justify-content: space-between; }
   .footer-top { flex-direction: column; gap: 30px; }
 }
+
+
+/* === TERMINAL ESTILO OBSIDIAN === */
+#terminal-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 750px;
+    height: 450px;
+    background: rgba(10, 12, 18, 0.98);
+    border: 1px solid var(--accent-primary);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(59, 130, 246, 0.2);
+    z-index: 100000; /* Prioridad máxima */
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Fira Code', monospace;
+}
+
+.terminal-hidden {
+    display: none !important;
+}
+
+.terminal-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.terminal-header {
+    background: #1a1f2b;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-dots span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+.terminal-dots span:nth-child(1) { background: #ff5f56; }
+.terminal-dots span:nth-child(2) { background: #ffbd2e; }
+.terminal-dots span:nth-child(3) { background: #27c93f; }
+
+#terminal-output {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    color: #f8fafc;
+}
+
+.terminal-input-line {
+    display: flex;
+    padding: 15px 20px;
+    background: #08080c;
+    border-top: 1px solid var(--glass-border);
+}
+
+.terminal-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    flex-grow: 1;
+    margin-left: 10px;
+    font-family: inherit;
+}
+
+.prompt { color: var(--accent-primary); font-weight: bold; }
+.response { color: #cbd5e1; margin-bottom: 10px; }
+.terminal-hidden {
+    display: none !important;
+}

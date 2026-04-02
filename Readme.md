@@ -26,7 +26,6 @@ El portafolio ha sido rediseñado con una estética **Obsidian Glacier**, priori
 ![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Astro](https://img.shields.io/badge/astro-%230D1117.svg?style=for-the-badge&logo=astro&logoColor=white)
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 ---
 
@@ -53,6 +52,24 @@ El portafolio ha sido rediseñado con una estética **Obsidian Glacier**, priori
 - **Accesibilidad y SEO**: Uso de etiquetas semánticas HTML5, atributos ARIA y metaetiquetas optimizadas.
 
 ---
+## 🖥️ Funcionalidades de Vanguardia
+
+### 🛠️ Terminal Interactiva "Quine"
+El corazón técnico del portafolio. Una consola virtual integrada que permite la navegación profunda mediante comandos:
+- **Auto-Help**: Al abrir la terminal (`º`), el sistema detecta si está vacía y ejecuta automáticamente el comando `help` para guiar al usuario.
+- **Motor de Navegación**: Comando `go [sección]` (ej. `go Proyectos`) con filtrado inteligente y scroll suavizado.
+- **Sudo Hire (Easter Egg)**: Comando especial con privilegios de administrador que muestra un mensaje simpático y redirige al reclutador directamente al formulario de contacto.
+- **Utilidades**: Comandos `ls` (mapeo del sitio), `clear` (limpieza de buffer) y `whoami`.
+
+### ⚡ Context Awareness System
+Sistema de saludo dinámico que detecta la franja horaria del visitante (Buenos días/tardes/noches) mediante `context.js`, mejorando el engagement orgánico desde el primer segundo.
+
+### 🎯 UX & Interactividad
+- **Cursor Personalizado**: Seguimiento interactivo que reacciona a elementos clickeables.
+- **Case Study Framework**: Modales de detalles con desglose técnico de Reto, Solución y Resultado.
+- **Filtros Dinámicos**: Sistema de clasificación de proyectos por stack tecnológico en tiempo real.
+
+---
 
 ## 📂 Estructura del Proyecto
 
@@ -60,11 +77,11 @@ El portafolio ha sido rediseñado con una estética **Obsidian Glacier**, priori
 .
 ├── index.html      # Estructura semántica HTML5
 ├── style.css       # Design System (Variables, Glassmorphism, Responsive)
-├── script.js       # Comportamiento, Modales, Command Palette y Cursor
+├── js/
+│   ├── terminal.js # Motor Quine y navegación por comandos
+│   ├── context.js  # Lógica de saludo horario dinámico
+│   └── script.js   # UI, Modales y lógica general
 └── assets/         # Recursos optimizados (Iconos, Fotos, Fondos)
-```
 
 ---
 
-## 📜 Licencia
-Proyecto creado por **Claudio Fanelli Rodríguez**. Bajo licencia MIT para uso personal y educativo.
