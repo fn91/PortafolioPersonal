@@ -68,6 +68,16 @@ Sistema de saludo dinámico que detecta la franja horaria del visitante (Buenos 
 - **Cursor Personalizado**: Seguimiento interactivo que reacciona a elementos clickeables.
 - **Case Study Framework**: Modales de detalles con desglose técnico de Reto, Solución y Resultado.
 - **Filtros Dinámicos**: Sistema de clasificación de proyectos por stack tecnológico en tiempo real.
+- **Animaciones de Texto Premium**: Sistema de revelado cinematográfico utilizando la API de Animaciones Web (WAAPI) nativa:
+  - `soft-blur-in`: Revelado con desenfoque suavizado para el hero (Estilo Apple).
+  - `mask-reveal-up`: Apertura de líneas mediante máscaras de opacidad.
+  - `typewriter`: Efecto de escritura técnica secuencial optimizada para evitar parpadeos.
+
+### ⚡ Rendimiento y Optimización
+- **Zero Dependencies**: Implementación puramente nativa sin librerías externas (GSAP/Motion).
+- **GPU Acceleration**: Uso intensivo de `will-change` y `inline-block` para asegurar 60 FPS.
+- **Accessibility First**: Soporte completo para `prefers-reduced-motion` y etiquetas `aria-label` para mantener el SEO y la legibilidad.
+- **Gradient Preservation**: Lógica avanzada para heredar gradientes CSS en textos fragmentados por caracteres.
 
 ---
 
@@ -80,6 +90,7 @@ Sistema de saludo dinámico que detecta la franja horaria del visitante (Buenos 
 ├── js/
 │   ├── terminal.js # Motor Quine y navegación por comandos
 │   ├── context.js  # Lógica de saludo horario dinámico
+│   ├── text-animations.js # Sistema de animaciones premium (Skill: animate-text)
 │   └── script.js   # UI, Modales y lógica general
 └── assets/         # Recursos optimizados (Iconos, Fotos, Fondos)
 
