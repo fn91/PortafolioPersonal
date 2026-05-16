@@ -155,8 +155,8 @@ function applySoftBlurIn(el, delayOffset = 0) {
   }
 
   const EASING   = 'cubic-bezier(0.22, 1, 0.36, 1)';
-  const DURATION = 900;
-  const STAGGER  = 25;
+  const DURATION = 700;
+  const STAGGER  = 60;   // Equilibrado para que el nombre completo aparezca a tiempo
 
   chars.forEach((span, i) => {
     const delay = delayOffset + i * STAGGER;
@@ -312,11 +312,11 @@ function initTextAnimations() {
 
   // 3. h2 subtitle — mask-reveal-up per-line
   const heroSubtitle = document.querySelector('.about-meta h2');
-  applyMaskRevealUp(heroSubtitle, 500);
+  applyMaskRevealUp(heroSubtitle, 1200);
 
-  // 4. Tagline — typewriter (starts after hero title completes ≈900ms)
+  // 4. Tagline — typewriter (starts after hero title completes)
   const tagline = document.querySelector('.tagline');
-  applyTypewriter(tagline, 950);
+  applyTypewriter(tagline, 2800);
 
   // ── Remaining section headings — revealed as user scrolls ───────────────
 

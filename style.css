@@ -99,11 +99,14 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 3.8rem); /* Un poco mas pequeño para evitar cortes */
   background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding: 10px 0; /* Add padding to prevent blur/transform clipping */
+  overflow: visible;
+  line-height: 1.1;
 }
 
 /* Preserve gradient-text on per-character spans inside h1 */
@@ -113,6 +116,7 @@ h1 span[aria-hidden="true"] {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  overflow: visible;
 }
 
 h2 {
@@ -178,9 +182,9 @@ header.rutas {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 24px;
-  max-width: 1000px;
+  grid-template-columns: 1fr 3.5fr; /* Mas espacio para el texto */
+  gap: 32px;
+  max-width: 1200px; /* Mas ancho total */
   margin: 0 auto;
 }
 
@@ -200,9 +204,10 @@ header.rutas {
 .about-meta {
   background: var(--bg-surface);
   backdrop-filter: blur(20px);
-  padding: 40px;
+  padding: 50px; /* Mas espacio para animaciones */
   border-radius: var(--radius-lg);
   border: 1px solid var(--glass-border);
+  overflow: visible; /* Asegurar que no corte blur/transform */
 }
 
 /* Buttons & Badges */

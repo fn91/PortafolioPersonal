@@ -22,10 +22,8 @@ const initLocalContext = () => {
     }
 
     // 4. Inyectar el saludo antes del contenido original
-    // Usamos un pequeño delay para que se sienta como una "carga" orgánica
-    setTimeout(() => {
-        welcomeLine.innerHTML = `<span class="fade-in-text">${greeting}</span> <br> ${welcomeLine.innerHTML}`;
-    }, 500);
+    // Inyección inmediata para sincronizar con el sistema de animaciones
+    welcomeLine.innerHTML = `<span class="context-greeting">${greeting}</span> <br> ${welcomeLine.innerHTML}`;
 };
 
 document.addEventListener('DOMContentLoaded', initLocalContext);
